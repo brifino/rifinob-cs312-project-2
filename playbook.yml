@@ -1,12 +1,37 @@
 - name: Configure Minecraft Server
   hosts: all
   become: true
+  vars:
+    ansible_ssh_user: ec2-user
+    ansible_ssh_private_key_file: ./minecraftKeyFile
+
   tasks:
+    - name: Update all packages
+      yum:
+        name: "*"
+        state: latest
+
     - name: Install Docker
-      apt:
-        name: docker.io
+      yum:
+        name: docker
         state: present
-        update_cache: yes
+
+    - name: Install Git
+      yum:
+        name: git
+        state: present
+
+    - name: Start and enable Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Add ec2-user to the docker group
+      user:
+        name: ec2-user
+        groups: docker
+        append: yes
 
     - name: Check that Docker is running
       systemd:
@@ -25,3 +50,12 @@
         env:
           EULA: "TRUE"
           VERSION: "LATEST"
+
+    - name: Reboot the machine
+      reboot:
+        msg: "Rebooting the machine for changes to take effect"
+        connect_timeout: 30
+        reboot_timeout: 30
+        pre_reboot_delay: 0
+        post_reboot_delay: 30
+        test_command: uptime

@@ -18,7 +18,7 @@ provider "aws" {
 # Key pair for SSH access
 resource "aws_key_pair" "minecraft_key" {
   key_name   = "minecraft_key"
-  public_key = file("${path.module}/minecraft-key.pub")
+  public_key = file("${path.module}/minecraftKeyFile.pub")
 }
 
 
@@ -64,8 +64,13 @@ resource "aws_instance" "minecraft_server" {
   }
 }
 
+# Output the public DNS of the Minecraft server
+output "minecraft_server_public_dns" {
+  description = "The public DNS for SSH access to the Minecraft server"
+  value       = aws_instance.minecraft_server.public_dns
+}
 # Output the public IP address of the Minecraft server
 output "minecraft_server_public_ip" {
-  description = "The public IP address of the Minecraft server"
-  value = aws_instance.minecraft_server.public_ip
+  description = "The public IP address to ping the Minecraft server"
+  value       = aws_instance.minecraft_server.public_ip
 }
