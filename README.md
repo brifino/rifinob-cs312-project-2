@@ -2,6 +2,7 @@
 ### <center> CS312 System Administration - Oregon State University - Spring 2024 </center>
 <center> Brahm Rifino </center>
 ---
+
 ## Table of Contents
   - [Introduction](#introduction)
   - [Requirements](#requirements)
@@ -14,6 +15,7 @@
   - [Conclusion](#conclusion)
   - [Cleaning up](#cleaning-up)
   - [References](#references)
+
 ## Introduction
 This document will serve as a tutorial to set up and deploy a Minecraft Server on a Amazon Web Services Elastic Compute Cloud instance.<br> 
 The entire process of creating and configuring a virtual machine on AWS, installing a Minecraft server 
