@@ -1,7 +1,7 @@
 # <center> Course Project Part 2 </center>
 ### <center> CS312 System Administration - Oregon State University - Spring 2024 </center>
 <center> Brahm Rifino </center>
----
+
 
 ## Table of Contents
   - [Introduction](#introduction)
