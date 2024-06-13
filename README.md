@@ -32,7 +32,7 @@ connecting to the server.
   * Version 1.8.5
 * Ansible installed
   * Version 2.16.7
-* Git installed\
+* Git installed
   * Version 2.40.1
 
 ## Setting Up AWS Credentials
