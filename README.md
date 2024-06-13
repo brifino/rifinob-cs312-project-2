@@ -26,10 +26,12 @@ connecting to the server.
 ## Requirements
 * Personal Computer or laptop with internet access
 * Active AWS account
-* SSH Client
 * Terraform installed
+  * Version 1.8.5
 * Ansible installed
-* Git installed
+  * Version 2.16.7
+* Git installed\
+  * Version 2.40.1
 
 ## Setting Up AWS Credentials
 For educational purposes we will store our credentials and other important information in a directory named **aws-minecraft**.
